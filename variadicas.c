@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include "ft_printf.h"
 
 void	ft_putnbr_fd(int n, int fd);
 void    ft_putstr(const char *str);
@@ -81,6 +82,14 @@ void printf_str(const char *format , ...)
     }
 
     va_end(args_printf);
+}
+
+int ft_printf(const char *str, ...)
+{
+    va_list arg;
+
+
+
 }
 
 int main()
