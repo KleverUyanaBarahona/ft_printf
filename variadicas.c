@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
-#include "ft_printf.h"
+#include "./ft_printf.h"
 
 void	ft_putnbr_fd(int n, int fd);
 void    ft_putstr(const char *str);
@@ -84,19 +84,6 @@ void printf_str(const char *format , ...)
     va_end(args_printf);
 }
 
-int ft_printf(const char *str, ...)
-{
-    va_list args;
-    t_n *n;
-    t_convspecs *cs;
-
-    va_start(args, str);
-
-
-    va_end(args);
-    return 0;
-}
-
 static int _is_digit(char ch)
 {
     if ((ch >= '0') && (ch <= '9'))
@@ -116,8 +103,37 @@ unsigned int _atoi(char** str)
   return i;
 }
 
+int ft_printf(const char *str, ...)
+{
+    va_list args;
+    t_n *n;
+    t_convspecs *cs;
+    const int printed_char;   	
+    if (str == NULL || str == "\0")
+	return -1;
+    va_start(args, str);
+    while (*str)
+    {
+        if (*str != '%')
+        {
+            /* code */
+        }
+        
+    }
+    
+
+    va_end(args);
+    return printed_char;
+}
+
 int main()
 {
+
+
+
+
+
+    /*
     char *m = "hola";
     int a = 2000;
     int cc;
@@ -128,12 +144,7 @@ int main()
 
     cc = printf("klever %li",15166515616);
 
-    printf("\n%i\n",cc);
-    char *p = "1236";
-    printf("%i",_atoi(p));
-    _atoi(p);
 
-/*
     if (printf("Hola")==printf("Hola"))
     {
         printf("no son igluales");
