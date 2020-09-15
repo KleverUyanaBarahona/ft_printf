@@ -115,9 +115,8 @@ int ft_printf(const char *str, ...)
     while (*str)
     {
         if (*str != '%')
-        {
-            /* code */
-        }
+        write(1, str++, 1);
+        
         
     }
     
