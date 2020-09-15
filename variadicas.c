@@ -86,22 +86,63 @@ void printf_str(const char *format , ...)
 
 int ft_printf(const char *str, ...)
 {
-    va_list arg;
+    va_list args;
+    t_n *n;
+    t_convspecs *cs;
+
+    va_start(args, str);
 
 
+    va_end(args);
+    return 0;
+}
 
+static int _is_digit(char ch)
+{
+    if ((ch >= '0') && (ch <= '9'))
+    {
+        return 1;
+    }
+    
+  return -1;
+}
+
+unsigned int _atoi(char** str)
+{
+  unsigned int i = 0U;
+  while (_is_digit(**str)) {
+    i = i * 10U + (unsigned int)(*((*str)++) - '0');
+  }
+  return i;
 }
 
 int main()
 {
     char *m = "hola";
     int a = 2000;
-
+    int cc;
     print_ints(4,123,2,4,5);
     printf_str("dddd", m , "1", 1 );
 
     printf("hola%s","\n");
-        
+
+    cc = printf("klever %li",15166515616);
+
+    printf("\n%i\n",cc);
+    char *p = "1236";
+    printf("%i",_atoi(p));
+    _atoi(p);
+
+/*
+    if (printf("Hola")==printf("Hola"))
+    {
+        printf("no son igluales");
+    }
+    else
+    {
+        printf("si no iguales");
+    } 
+  */  
     return 0;
 
 }
