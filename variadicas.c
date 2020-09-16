@@ -83,55 +83,89 @@ void printf_str(const char *format , ...)
 
     va_end(args_printf);
 }
-
-static int _is_digit(char ch)
+int ft_strcmp(const char *s1,const char *s2)
 {
-    if ((ch >= '0') && (ch <= '9'))
+	int i;
+	i = 0;
+
+	while (s1[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (s1[i] - s2[i]);
+
+}
+void ft_primeraf(const char caracter , int *n)
+{
+    int i;
+    char *flags;
+    flags[0] = 'c';
+    flags[1] = 's';
+
+    i = 0;
+    while (caracter == flags[i])
     {
-        return 1;
+        /* code */
     }
     
-  return -1;
 }
 
-unsigned int _atoi(char** str)
+int ft_vprintf(const char *str, va_list args)
 {
-  unsigned int i = 0U;
-  while (_is_digit(**str)) {
-    i = i * 10U + (unsigned int)(*((*str)++) - '0');
-  }
-  return i;
+    int n;
+
+    n = 0;
+    char aux;
+
+ while (*str)
+    {
+        if (*str != '%'){
+        write(1, str++, 1);
+        n += 1; 
+        }
+        else if (*str++)
+        {
+        aux = (char)*str;
+        printf("%c", aux);
+        ft_primeraf(aux,&n);
+        }
+
+        
+        
+    }
+    return n;
 }
 
 int ft_printf(const char *str, ...)
 {
     va_list args;
-    t_n *n;
-    t_convspecs *cs;
-    const int printed_char;   	
-    if (str == NULL || str == "\0")
-	return -1;
-    va_start(args, str);
-    while (*str)
-    {
-        if (*str != '%')
-        write(1, str++, 1);
-        
-        
-    }
-    
 
+    int printed_char;
+    
+    if (str == NULL)
+	return -1;
+    else if (ft_strcmp(str, "\0") == 0)
+    return 0;
+
+    va_start(args, str);
+    printed_char = ft_vprintf(str,args);
     va_end(args);
+
     return printed_char;
 }
 
 int main()
 {
+    int ft;
+    int p;
+    
+    ft = ft_printf("%c");
+    p = printf("");
 
-
-
-
-
+    printf("ft:%d\n",ft);
+    printf("p:%d\n",p);
     /*
     char *m = "hola";
     int a = 2000;
