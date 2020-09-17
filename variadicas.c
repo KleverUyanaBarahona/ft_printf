@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include "./ft_printf.h"
 
 void	ft_putnbr_fd(int n, int fd);
@@ -66,7 +67,6 @@ void print_ints(int num , ...)
         ft_putnbr(value);
     }
     va_end(args);
-
 }
 void printf_str(const char *format , ...)
 {
@@ -97,19 +97,47 @@ int ft_strcmp(const char *s1,const char *s2)
 	return (s1[i] - s2[i]);
 
 }
-void ft_primeraf(const char caracter , int *n)
+void ft_primeraf(char caracter , int *n, va_list args)
 {
     int i;
-    char *flags;
+    char flags[2];
     flags[0] = 'c';
     flags[1] = 's';
-
+    char char_aux;
     i = 0;
-    while (caracter == flags[i])
+    while (*flags)
     {
-        /* code */
+        if(caracter != *flags && !(*flags) )
+        break;
+        else
+        {
+            if (*flags == 'c')
+            {
+            char_aux = va_arg(args,int);
+            ft_putchar(char_aux);
+            *n = *n+1;
+            break;
+            }
+            
+        }
+        
     }
     
+}
+
+char	ft_chardup(const char *s1)
+{
+	char	ne;
+	int		i;
+	
+    i = 0;
+	while (s1[1])
+	{
+		ne = s1[i];
+		i++;
+	}
+	
+	return ne;
 }
 
 int ft_vprintf(const char *str, va_list args)
@@ -127,12 +155,20 @@ int ft_vprintf(const char *str, va_list args)
         }
         else if (*str++)
         {
-        aux = (char)*str;
-        printf("%c", aux);
-        ft_primeraf(aux,&n);
+        aux = ft_chardup(str);
+            if (*str == '%')
+            {
+            ft_putchar('%');
+            n = n + 1;
+            str++;
+            }
+            else
+            {
+            ft_primeraf(aux,&n,args);
+            str++; 
+            }
+            
         }
-
-        
         
     }
     return n;
@@ -160,9 +196,10 @@ int main()
 {
     int ft;
     int p;
+    char e = '%';
     
-    ft = ft_printf("%c");
-    p = printf("");
+    ft = ft_printf("\nklever%%");
+    p = printf("\nklever%%\n");
 
     printf("ft:%d\n",ft);
     printf("p:%d\n",p);
