@@ -4,11 +4,13 @@
 #include <stdlib.h>
 #include "./ft_printf.h"
 
+
 void	ft_putnbr_fd(int n, int fd);
 void    ft_putstr(const char *str);
 void print_ints(int num , ...);
 void printf_str(const char *format , ...);
 //libreria
+
 void    ft_putstr(const char *str)
 {
     int a;
@@ -174,6 +176,17 @@ int ft_vprintf(const char *str, va_list args)
     return n;
 }
 
+void save_args(va_list *args)
+{
+    void *save_arg;
+    int i = 0;
+    while (*args)
+    {
+        
+    }
+    
+}
+
 int ft_printf(const char *str, ...)
 {
     va_list args;
@@ -197,11 +210,13 @@ int main()
     int ft;
     int p;
     char e = '%';
-    
-    ft = ft_printf("\nklever%%");
-    p = printf("\nklever%%\n");
 
-    printf("ft:%d\n",ft);
+    
+    
+    ft = ft_printf("\nklever%c",e);
+    p = printf("\nklever%c",e);
+
+    printf("\nsft:%d\n",ft);
     printf("p:%d\n",p);
     /*
     char *m = "hola";
