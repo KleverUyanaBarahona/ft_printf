@@ -85,6 +85,7 @@ void printf_str(const char *format , ...)
 
     va_end(args_printf);
 }
+
 int ft_strcmp(const char *s1,const char *s2)
 {
 	int i;
@@ -97,8 +98,8 @@ int ft_strcmp(const char *s1,const char *s2)
 		i++;
 	}
 	return (s1[i] - s2[i]);
-
 }
+
 void ft_primeraf(char caracter , int *n, va_list args)
 {
     int i;
@@ -192,10 +193,9 @@ int ft_printf(const char *str, ...)
     va_list args;
 
     int printed_char;
-    
     if (str == NULL)
 	return -1;
-    else if (ft_strcmp(str, "\0") == 0)
+    else if ((ft_strcmp(str,"\0") == 0)||(ft_strcmp(str,"%") == 0))
     return 0;
 
     va_start(args, str);
@@ -211,12 +211,10 @@ int main()
     int p;
     char e = '%';
 
-    
-    
-    ft = ft_printf("\nklever%c",e);
-    p = printf("\nklever%c",e);
+    ft = ft_printf("%%",10);
+    p = printf("%%%%");
 
-    printf("\nsft:%d\n",ft);
+    printf("\nft:%d\n",ft);
     printf("p:%d\n",p);
     /*
     char *m = "hola";

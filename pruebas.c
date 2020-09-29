@@ -20,7 +20,6 @@ void    ft_putcharstr(const char *str)
 
 }
 void contador_variables2(const char *str){
-
     char *conver;
     char *flags;
     flags = "#-+ .*0123456789hljz";
@@ -31,7 +30,6 @@ void contador_variables2(const char *str){
   while (*str)
   {
       if(str==)
-
       str++;
     i++;
   }
