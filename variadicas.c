@@ -27,6 +27,7 @@ void    ft_putchar(char c)
 {
   write(1, &c, 1);
 }
+
 void    ft_putnbr(int nb)
 {
         long i;
@@ -103,9 +104,7 @@ int ft_strcmp(const char *s1,const char *s2)
 void ft_primeraf(char caracter , int *n, va_list args)
 {
     int i;
-    char flags[2];
-    flags[0] = 'c';
-    flags[1] = 's';
+    char *flags = "cs";
     char char_aux;
     i = 0;
     while (*flags)
@@ -211,8 +210,8 @@ int main()
     int p;
     char e = '%';
 
-    ft = ft_printf("%%",10);
-    p = printf("%%%%");
+    ft = ft_printf("%c","klever");
+    p = printf("%%");
 
     printf("\nft:%d\n",ft);
     printf("p:%d\n",p);
