@@ -13,8 +13,8 @@ char	ft_chardup(const char *s1)
 {
 	char	ne;
 	int		i;
-	
-    i = 0;
+
+    ne = ' ';
 	while (s1[1])
 	{
 		ne = s1[i];
@@ -46,37 +46,42 @@ int ft_strcmp(const char *s1,const char *s2)
 void ft_espec_format(char caracter ,int *chars, Mystruct vars)
 {
     char char_aux;
-    if(caracter=='c'){
+    
+    if (caracter=='c'){
         char_aux = va_arg(vars.args,int);
         ft_putchar(char_aux);
         *chars = *chars+1;
-    }else if (caracter == '%'){
-        ft_putchar('%');
-        *chars = *chars+1;
-    }
+        }
+ 
 }
 
 int ft_vprintf(const char *format, Mystruct var){
     int chars;
+    int i;
 
     chars = 0;
+    i = 0;
     char aux;
-while (*format)
+while (format[i]!='\0')
     {
-        if (*format != '%')
+        if (format[i] != '%')
         {
-        write(1, format++, 1);
+        ft_putchar(format[i++]);
         chars +=1;
-    }else{
-        format++;
-        aux = ft_chardup(format);
-        ft_espec_format(aux,&chars,var);
+        }else if(format[i++]=='%'){
+        ft_putchar(format[i]);
+        chars +=1;
+        }else if(format[i]=='c'){
+        aux = va_arg(var.args,int);
+        ft_putchar(aux);
+        chars +=1;
+        i++;
+        }
+        
     }
-
+    return  chars;
 }
 
-    return chars;
-}
 
 
 int ft_printf(const char *format,...)
@@ -104,10 +109,10 @@ int  main (){
     int p;
     char e = '%';
     
-    ft = ft_printf("kleve%c" ,37);
-    p = printf("%c%c",37,37);
+    ft = ft_printf("%cklever",e);
+   //p = printf("%cklever",e);
 
     printf("\nft:%d\n",ft);
-    printf("p:%d\n",p);
+    //printf("p:%d\n",p);
     return 0;
 }
