@@ -215,22 +215,22 @@ int ft_printf(const char *format, ...)
 		{
 			if (!(ft_inspector_format(format,&vars)))
 			return (0);
-            reset_values_t_var(&vars);
+			reset_values_t_var(&vars);
 		}
 	}
-    va_end(vars.args);
+	va_end(vars.args);
     return (vars.char_count);
 }
 
 int  main (){
-    int ft;
-    int p;
-    char e = '%';
-    
-    //ft = ft_printf("");
+	int ft;
+	int p;
+	char e = '%';
+
+	ft = ft_printf("");
 	p = printf("%s","342");
 
-    //printf("\nft:%d",ft);
-    printf("\np:%d\n",p);
-    return 0;
+	printf("\nft:%d",ft);
+	printf("\np:%d\n",p);
+	return 0;
 }
