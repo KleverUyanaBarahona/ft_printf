@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   print_caracter.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 18:57:48 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/11 20:38:08 by kbarahon         ###   ########.fr       */
+/*   Created: 2020/10/11 20:15:03 by kbarahon          #+#    #+#             */
+/*   Updated: 2020/10/11 20:38:20 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_isalpha(int c)
+void	print_caracter(t_var *var)
 {
-	if ((c > 64 && c < 91) || (c > 96 && c < 123))
-		return (1);
-	return (0);
+	if (var->width > 1)
+	{
+		var->spaces = var->width - 1;
+		if (var->minus == 1)
+		{
+			ft_putchar_fd(va_arg(var->args, int), 1);
+			print_spaces(var);
+		}
+		else
+		{
+			print_spaces(var);
+			ft_putchar_fd(va_arg(var->args, int), 1);
+		}
+	}
+	else
+		ft_putchar_fd(va_arg(var->args, int), 1);
+	var->char_count++;
+	var->str_count++;
 }

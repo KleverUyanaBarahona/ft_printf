@@ -6,7 +6,7 @@
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 18:44:59 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/10 20:14:07 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/11 20:38:47 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,12 @@ void			reset_values_t_var(t_var *var);
 int				spect_format(const char *format);
 int				ft_strcmp(const char *s1, const char *s2);
 void			ft_putchar_fd(char c, int fd);
+int				ft_inspector_format(const char *format, t_var *vars);
+char			get_data_type(const char *format);
+void			print_caracter(t_var *var);
+void			print_percentage(t_var *var);
+void			print_spaces(t_var *vars);
+void			print_zeros(t_var *vars);
+void			print_zeros_pad(t_var *var);
 
 #endif

@@ -1,20 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   print_zero_space.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 18:57:48 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/11 20:38:08 by kbarahon         ###   ########.fr       */
+/*   Created: 2020/10/11 20:19:15 by kbarahon          #+#    #+#             */
+/*   Updated: 2020/10/11 20:38:19 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_isalpha(int c)
+
+void	print_spaces(t_var *vars)
 {
-	if ((c > 64 && c < 91) || (c > 96 && c < 123))
-		return (1);
-	return (0);
+	while (vars->spaces > 0)
+	{
+		ft_putchar_fd(' ', 1);
+		vars->char_count++;
+		vars->spaces--;
+	}
+}
+
+void	print_zeros(t_var *vars)
+{
+	while (vars->spaces > 0)
+	{
+		ft_putchar_fd('0', 1);
+		vars->char_count++;
+		vars->spaces--;
+	}
+}
+
+void	print_zeros_pad(t_var *var)
+{
+	while (var->zero_pad > 0)
+	{
+		ft_putchar_fd('0', 1);
+		var->char_count++;
+		var->zero_pad--;
+	}
 }

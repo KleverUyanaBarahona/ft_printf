@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   get_data_type.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 18:57:48 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/11 20:38:08 by kbarahon         ###   ########.fr       */
+/*   Created: 2020/10/11 20:12:05 by kbarahon          #+#    #+#             */
+/*   Updated: 2020/10/11 20:38:03 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_isalpha(int c)
+char	get_data_type(const char *format)
 {
-	if ((c > 64 && c < 91) || (c > 96 && c < 123))
-		return (1);
-	return (0);
+	int i;
+
+	i = 1;
+	while (!ft_isalpha(format[i]) && format[i] != '%' && format[i] != '\0')
+		i++;
+	return (format[i]);
 }
