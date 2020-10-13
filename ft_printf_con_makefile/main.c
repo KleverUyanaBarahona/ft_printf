@@ -8,7 +8,7 @@ int  main (){
 	char e = '%';
 
 //p = printf("%-5c",'c');
-	ft = ft_printf("%20c%20c",'c','c');
+	ft = ft_printf("%-20c%20c",'x','x');
 	p = printf("%20c",'c');
 
 	printf("\nft:%d",ft);

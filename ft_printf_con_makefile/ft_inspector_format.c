@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_inspector_format.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 20:09:27 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/13 02:18:04 by klever           ###   ########.fr       */
+/*   Updated: 2020/10/13 20:48:28 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int ft_inspector_format(const char *format, t_var *vars)
     print_caracter(vars);
     else if (vars->data_type == '%')
     print_percentage(vars);
+    else if (vars->data_type == 's')
+	print_string(vars, va_arg(vars->args, char *));
     return(1);
 }

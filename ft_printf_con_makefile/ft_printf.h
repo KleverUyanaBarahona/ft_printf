@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 18:44:59 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/13 03:15:12 by klever           ###   ########.fr       */
+/*   Updated: 2020/10/13 20:48:11 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,9 @@ void			get_width_value(const char *format, t_var *var);
 void			get_width(const char *format, t_var *var);
 void			get_precision_value(const char *format, t_var *var);
 void			get_precision(const char *format, t_var *var);
+void			ft_putstr_fd(char *s, int fd);
+void			print_string(t_var *var, char *str);
+void			print_str_r(t_var *var, char *str, int str_len);
+void			print_str_l(t_var *var, char *str, int str_len);
 
 #endif

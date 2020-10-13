@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: klever <klever@student.42.fr>              +#+  +:+       +#+         #
+#    By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/11 19:47:39 by kbarahon          #+#    #+#              #
-#    Updated: 2020/10/13 03:19:07 by klever           ###   ########.fr        #
+#    Updated: 2020/10/13 20:48:47 by kbarahon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS = ft_atoi.c ft_inspector_format.c ft_isalpha.c ft_isdigit.c \
 		ft_num_len.c ft_printf.c ft_strcmp.c get_data_type.c init_values_t_var.c \
 		print_caracter.c print_percentage.c print_zero_space.c put_fuctions.c \
 		reset_values_t_var.c spect_format.c get_flags.c str_functions.c get_precision.c \
-		get_width.c 
+		get_width.c print_string.c
 
 OBJS        =   ${SRCS:.c=.o}
 
