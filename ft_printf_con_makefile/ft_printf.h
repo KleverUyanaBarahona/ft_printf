@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 18:44:59 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/11 20:38:47 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/13 03:15:12 by klever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ int				ft_atoi(const char *str);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_num_len(long int num);
+size_t			ft_strlen(const char *s);
+char			*ft_strdup(const char *s1);
+char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
 void			init_values_t_var(t_var *var);
 void			reset_values_t_var(t_var *var);
 int				spect_format(const char *format);
@@ -53,5 +57,11 @@ void			print_percentage(t_var *var);
 void			print_spaces(t_var *vars);
 void			print_zeros(t_var *vars);
 void			print_zeros_pad(t_var *var);
+void			get_flags(const char *format, t_var *var);
+void			reverse_str(char **str);
+void			get_width_value(const char *format, t_var *var);
+void			get_width(const char *format, t_var *var);
+void			get_precision_value(const char *format, t_var *var);
+void			get_precision(const char *format, t_var *var);
 
 #endif
