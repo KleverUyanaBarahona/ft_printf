@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_flags.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 02:20:24 by klever            #+#    #+#             */
-/*   Updated: 2020/10/13 03:56:13 by klever           ###   ########.fr       */
+/*   Updated: 2020/10/14 18:13:20 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	get_flags(const char *format, t_var *var)
 {
-
+	var->str_count++;
 	while (ft_isalpha(format[var->str_count]) != 1 && format[var->str_count] != '%')
 	{
 		if (format[var->str_count] == '-')

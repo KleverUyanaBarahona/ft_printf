@@ -6,7 +6,7 @@
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 18:44:59 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/13 20:48:11 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/14 20:47:04 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,11 @@ void			ft_putstr_fd(char *s, int fd);
 void			print_string(t_var *var, char *str);
 void			print_str_r(t_var *var, char *str, int str_len);
 void			print_str_l(t_var *var, char *str, int str_len);
+void			print_decimal(t_var *var, int n);
+void			print_n_l(t_var *var, int n, int n_len);
+void			print_n_r(t_var *var, int n, int n_len);
+int				print_sign(int n);
+void			print_n_special(t_var *var);
+void			ft_putnbr_fd(int n, int fd);
 
 #endif

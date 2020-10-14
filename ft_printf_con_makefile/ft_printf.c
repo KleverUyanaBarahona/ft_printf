@@ -6,7 +6,7 @@
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 19:17:37 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/11 20:38:05 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/14 18:09:13 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ int	ft_printf(const char *format, ...)
 		return (0);
 	while (format[vars.str_count] != '\0')
 	{
-		if (format[vars.str_count] != '%')
-		{
-			ft_putchar_fd(format[vars.str_count], 1);
-			vars.char_count++;
-			vars.str_count++;
-		}
-		else if (format[vars.str_count++])
+		if (format[vars.str_count] == '%')
 		{
 			if (!(ft_inspector_format(format, &vars)))
 				return (0);
 			reset_values_t_var(&vars);
+		}
+		else
+		{
+			ft_putchar_fd(format[vars.str_count], 1);
+			vars.char_count++;
+			vars.str_count++;
 		}
 	}
 	va_end(vars.args);
