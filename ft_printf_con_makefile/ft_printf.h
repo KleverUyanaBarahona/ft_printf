@@ -6,7 +6,7 @@
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 18:44:59 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/14 20:47:04 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/17 18:49:51 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,10 @@ void			print_n_r(t_var *var, int n, int n_len);
 int				print_sign(int n);
 void			print_n_special(t_var *var);
 void			ft_putnbr_fd(int n, int fd);
+void			ft_putnbr_uns_fd(unsigned int n, int fd);
+void			print_un_special(t_var *var);
+void			print_un_r(t_var *var, unsigned int n, int n_len);
+void			print_un_l(t_var *var, unsigned int n, int n_len);
+void			print_unsigned(t_var *var, int n);
 
 #endif

@@ -1,85 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_decimal.c                                    :+:      :+:    :+:   */
+/*   print_unsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 20:30:51 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/17 18:40:36 by kbarahon         ###   ########.fr       */
+/*   Created: 2020/10/17 18:43:17 by kbarahon          #+#    #+#             */
+/*   Updated: 2020/10/17 19:43:07 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_n_special(t_var *var)
+void	print_un_special(t_var *var)
 {
 	print_spaces(var);
 	var->str_count++;
 }
 
-int		print_sign(int n)
-{
-	ft_putchar_fd('-', 1);
-	n = n * -1;
-	return (n);
-}
-
-void	print_n_r(t_var *var, int n, int n_len)
+void	print_un_r(t_var *var, unsigned int n, int n_len)
 {
 	if (var->zero == 1)
-	{
-		if (n < 0)
-			n = print_sign(n);
 		print_zeros(var);
-	}
 	else
-	{
 		print_spaces(var);
-		if (n < 0)
-			n = print_sign(n);
-	}
 	print_zeros_pad(var);
-	ft_putnbr_fd(n, 1);
+	ft_putnbr_uns_fd(n, 1);
 	var->char_count += n_len;
-	var->str_count++;
 }
 
-void	print_n_l(t_var *var, int n, int n_len)
+void	print_un_l(t_var *var, unsigned int n, int n_len)
 {
-	if (n < 0)
-		n = print_sign(n);
 	print_zeros_pad(var);
-	ft_putnbr_fd(n, 1);
+	ft_putnbr_uns_fd(n, 1);
+	var->char_count += n_len;
 	print_spaces(var);
-	var->char_count += n_len;
-	var->str_count++;
 }
 
-void	print_decimal(t_var *var, int n)
+void	print_unsigned(t_var *var, int n)
 {
-	int	n_len;
+	int				n_len;
+	unsigned int	un;
 
-	n_len = ft_num_len(n);
-	if (var->precision == 1 && var->precision_value == 0 && n == 0)
+	un = (unsigned int)n;
+	n_len = ft_num_len(un);
+	if (var->precision == 1 && var->precision_value == 0 && un == 0)
 	{
 		var->spaces = var->width;
-		print_n_special(var);
+		print_un_special(var);
 		return ;
 	}
 	if (var->precision == 1)
 	{
 		var->zero = 0;
 		if (var->precision_value >= n_len)
-		{
-			if (n < 0)
-				var->zero_pad = var->precision_value - (n_len - 1);
-			else
-				var->zero_pad = var->precision_value - n_len;
-		}
+			var->zero_pad = var->precision_value - n_len;
 		var->spaces = (var->width - (n_len + var->zero_pad));
 	}
 	else
 		var->spaces = var->width - n_len;
-	var->minus == 1 ? print_n_l(var, n, n_len) : print_n_r(var, n, n_len);
+	var->minus == 1 ? print_un_l(var, un, n_len) : print_un_r(var, un, n_len);
+	var->str_count++;
 }

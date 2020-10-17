@@ -6,7 +6,7 @@
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 19:34:09 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/14 20:49:08 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/17 18:47:45 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ void	ft_putstr_fd(char *s, int fd)
 			i++;
 		}
 	}
+}
+
+void	ft_putnbr_uns_fd(unsigned int n, int fd)
+{
+	if (n > 9)
+		ft_putnbr_uns_fd(n / 10, fd);
+	ft_putchar_fd((n % 10 + 48), fd);
 }
 
 void	ft_putnbr_fd(int n, int fd)
