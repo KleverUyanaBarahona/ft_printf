@@ -6,7 +6,7 @@
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 18:44:59 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/17 18:49:51 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/17 20:07:48 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,12 @@ void			print_un_special(t_var *var);
 void			print_un_r(t_var *var, unsigned int n, int n_len);
 void			print_un_l(t_var *var, unsigned int n, int n_len);
 void			print_unsigned(t_var *var, int n);
+void			itox_upper(unsigned int num, char **str);
+void			itox_lower(unsigned int num, char **str);
+void			int_to_hex(t_var *var, unsigned int num, char **str);
+void			print_hex_special(t_var *var);
+void			print_hex_r(t_var *var, char *str, int len);
+void			print_hex_l(t_var *var, char *str, int len);
+void			print_hexadecimal(t_var *var, unsigned int n);
 
 #endif
