@@ -6,12 +6,11 @@
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 20:19:15 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/11 20:38:19 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/19 21:12:47 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 void	print_spaces(t_var *vars)
 {

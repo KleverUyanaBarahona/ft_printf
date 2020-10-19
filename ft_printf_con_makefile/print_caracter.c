@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_caracter.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 20:15:03 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/13 03:56:05 by klever           ###   ########.fr       */
+/*   Updated: 2020/10/19 21:08:53 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	print_caracter(t_var *var)
 {
-	
 	if (var->width > 1)
 	{
 		var->spaces = var->width - 1;
