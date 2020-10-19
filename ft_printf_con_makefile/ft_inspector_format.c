@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_inspector_format.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 20:09:27 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/17 19:57:24 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/18 23:41:01 by klever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int ft_inspector_format(const char *format, t_var *vars)
 {
-    if (!(vars->data_type = get_data_type(&format[vars->str_count])))
+if (!(vars->data_type = get_data_type(&format[vars->str_count])))
         return (0);
     get_flags(format, vars);
     if (vars->data_type == 'c')
@@ -28,6 +28,8 @@ int ft_inspector_format(const char *format, t_var *vars)
 	else if (vars->data_type == 'u')
 		print_unsigned(vars, va_arg(vars->args, int));
     else if (vars->data_type == 'x' || vars->data_type == 'X')
-		print_hexadecimal(vars, (unsigned int)va_arg(vars->args, int));    
+		print_hexadecimal(vars, (unsigned int)va_arg(vars->args, int));
+    else if (vars->data_type == 'p')
+		print_pointer(vars, (long unsigned int)va_arg(vars->args, void *));
     return(1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 18:44:59 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/17 20:07:48 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/18 23:40:39 by klever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,11 @@ void			print_hex_special(t_var *var);
 void			print_hex_r(t_var *var, char *str, int len);
 void			print_hex_l(t_var *var, char *str, int len);
 void			print_hexadecimal(t_var *var, unsigned int n);
+void			add_ptr_prefix(t_var *var);
+void			print_ptr_special(t_var *var);
+void			print_ptr_l(t_var *var, char *str, int len);
+void			print_ptr_r(t_var *var, char *str, int len);
+void			print_pointer(t_var *var, long unsigned int pointer);
+void			int_to_hex_long_un(long unsigned int num, char **str);
 
 #endif
