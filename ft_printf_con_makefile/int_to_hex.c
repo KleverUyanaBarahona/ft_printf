@@ -6,7 +6,7 @@
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 20:03:18 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/19 21:06:29 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/20 21:34:14 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,11 @@ void	itox_lower(unsigned int num, char **str)
 
 	n = num;
 	i = 1;
-	while ((n = n / 16) != 0)
+	if (num == 0)
+	*str = "0";
+	else
+	{
+			while ((n = n / 16) != 0)
 		i++;
 	temp = (char*)malloc(i + 1);
 	temp[i] = '\0';
@@ -62,6 +66,8 @@ void	itox_lower(unsigned int num, char **str)
 	}
 	*str = temp;
 	reverse_str(str);
+	}
+
 }
 
 void	int_to_hex(t_var *var, unsigned int num, char **str)

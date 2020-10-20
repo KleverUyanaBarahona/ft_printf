@@ -6,7 +6,7 @@
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 20:28:44 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/19 21:11:39 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/20 19:48:21 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	print_string(t_var *var, char *str)
 
 	if (str == NULL)
 		str = "(null)";
+	if (var->precision == 1 && var->precision_value == 0)
+		str = " ";
 	len = ft_strlen(str);
 	if (var->precision == 1 && var->precision_value < len)
 		len = var->precision_value;
