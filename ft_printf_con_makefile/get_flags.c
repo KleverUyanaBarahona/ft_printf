@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_flags.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 02:20:24 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/19 21:07:32 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/21 01:39:15 by klever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ void	get_flags(const char *format, t_var *var)
 		else if (ft_isdigit(format[var->str_count]) == 1)
 			get_width(format, var);
 		else if (format[var->str_count] == '*')
+		{
+			var->aux = 1;
 			get_width(format, var);
+		}
 		else if (format[var->str_count] == '.')
 		{
 			var->precision = 1;

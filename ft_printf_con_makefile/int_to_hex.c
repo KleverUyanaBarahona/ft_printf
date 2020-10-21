@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   int_to_hex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 20:03:18 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/20 21:34:14 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/21 05:16:29 by klever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	itox_upper(unsigned int num, char **str)
 	int				mod;
 	char			*temp;
 	int				i;
+
 
 	n = num;
 	i = 1;
@@ -47,11 +48,8 @@ void	itox_lower(unsigned int num, char **str)
 
 	n = num;
 	i = 1;
-	if (num == 0)
-	*str = "0";
-	else
-	{
-			while ((n = n / 16) != 0)
+
+	while ((n = n / 16) != 0)
 		i++;
 	temp = (char*)malloc(i + 1);
 	temp[i] = '\0';
@@ -65,8 +63,9 @@ void	itox_lower(unsigned int num, char **str)
 		num = num / 16;
 	}
 	*str = temp;
+	temp = NULL;
 	reverse_str(str);
-	}
+	
 
 }
 

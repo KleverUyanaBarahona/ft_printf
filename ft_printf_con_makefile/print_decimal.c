@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_decimal.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 20:30:51 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/19 21:09:19 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/21 04:03:50 by klever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ void	print_n_r(t_var *var, int n, int n_len)
 	}
 	else
 	{
+		if (var->aux == 1 && var->width <= var->precision_value && var->precision == 1){
+		if(var->width != 0 && !(var->width == var->precision_value))	
+			var->spaces = 1;		
+		}
 		print_spaces(var);
 		if (n < 0)
 			n = print_sign(n);
@@ -47,10 +51,27 @@ void	print_n_r(t_var *var, int n, int n_len)
 
 void	print_n_l(t_var *var, int n, int n_len)
 {
+	if (var->aux == 1 && var->width <= var->precision_value && var->precision == 1)
+	{		
+		if(var->width != 0)
+		{
+		ft_putchar_fd(' ', 1);
+		var->char_count++;
+		}
+	}
+	if (var->aux == 1 && var->width >= var->precision_value && var->precision == 1)
+	{	
+		if(var->width != 0)
+		{
+		ft_putchar_fd(' ', 1);
+		var->char_count++;
+		var->spaces--;
+		}
+	}
 	if (n < 0)
 		n = print_sign(n);
 	print_zeros_pad(var);
-	ft_putnbr_fd(n, 1);
+	ft_putnbr_fd(n, 1);		
 	print_spaces(var);
 	var->char_count += n_len;
 	var->str_count++;
@@ -67,6 +88,7 @@ void	print_decimal(t_var *var, int n)
 		print_n_special(var);
 		return ;
 	}
+	
 	if (var->precision == 1)
 	{
 		var->zero = 0;

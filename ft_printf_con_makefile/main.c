@@ -8,8 +8,8 @@ int  main (){
 	char e = '%';
 
 //p = printf("%-5c",'c');
-	ft = ft_printf("%.s",42);
-	p = printf("%.s",42);
+	ft = ft_printf("%*d", 0, 42);
+	p = printf("%*d", 0, 42);
 
 	printf("ft:%d",ft);
 	printf("p:%d",p);
