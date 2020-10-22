@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_zero_space.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cafernan <cafernan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 20:19:15 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/19 21:12:47 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/22 18:08:28 by cafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,10 @@ void	print_zeros_pad(t_var *var)
 		var->char_count++;
 		var->zero_pad--;
 	}
+}
+
+void	auxfuction(t_var *var)
+{
+	var->char_count++;
+	var->spaces--;
 }

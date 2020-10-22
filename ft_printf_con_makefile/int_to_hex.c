@@ -6,7 +6,7 @@
 /*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 20:03:18 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/22 02:32:30 by klever           ###   ########.fr       */
+/*   Updated: 2020/10/22 17:18:14 by cafernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	itox_upper(unsigned int num, char **str)
 	int				mod;
 	char			*temp;
 	int				i;
-
 
 	n = num;
 	i = 1;
@@ -48,7 +47,6 @@ void	itox_lower(unsigned int num, char **str)
 
 	n = num;
 	i = 1;
-
 	while ((n = n / 16) != 0)
 		i++;
 	temp = (char*)malloc(i + 1);
@@ -69,13 +67,13 @@ void	itox_lower(unsigned int num, char **str)
 
 void	int_to_hex(t_var *var, unsigned int num, char **str)
 {
-	if(var->precision_value == 0 && num==0 &&var->precision ==1)
-		*str="0";
+	if (var->precision_value == 0 && num == 0 && var->precision == 1)
+		*str = "0";
 	else
 	{
-	if (var->data_type == 'x' || var->data_type == 'p')
-		itox_lower(num, str);
-	if (var->data_type == 'X')
-		itox_upper(num, str);
-		}
+		if (var->data_type == 'x' || var->data_type == 'p')
+			itox_lower(num, str);
+		if (var->data_type == 'X')
+			itox_upper(num, str);
+	}
 }
