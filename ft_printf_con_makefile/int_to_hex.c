@@ -6,7 +6,7 @@
 /*   By: klever <klever@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 20:03:18 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/21 05:16:29 by klever           ###   ########.fr       */
+/*   Updated: 2020/10/22 02:32:30 by klever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,17 @@ void	itox_lower(unsigned int num, char **str)
 	*str = temp;
 	temp = NULL;
 	reverse_str(str);
-	
-
 }
 
 void	int_to_hex(t_var *var, unsigned int num, char **str)
 {
+	if(var->precision_value == 0 && num==0 &&var->precision ==1)
+		*str="0";
+	else
+	{
 	if (var->data_type == 'x' || var->data_type == 'p')
 		itox_lower(num, str);
 	if (var->data_type == 'X')
 		itox_upper(num, str);
+		}
 }
