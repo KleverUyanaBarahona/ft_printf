@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   print_caracter.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/14 12:51:49 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/09/28 17:56:00 by kbarahon         ###   ########.fr       */
+/*   Created: 2020/10/11 20:15:03 by kbarahon          #+#    #+#             */
+/*   Updated: 2020/10/22 19:06:14 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <stdarg.h>
-# include <limits.h>
-
-typedef struct	s_n
+void	print_caracter(t_var *var)
 {
-	long long int	*arg;
-	long long int	nchr;
-	struct s_n		*prev;
-	struct s_n		*next;
-}				t_n;
-
-typedef struct	s_convspecs
-{
-	char			sign;
-	char			adj;
-	char			padd;
-	char			alt;
-	int				width;
-	int				pre;
-	char			len;
-	char			spec;
-}				t_convspecs;
-
-#endif
+	if (var->width > 1)
+	{
+		var->spaces = var->width - 1;
+		if (var->minus == 1)
+		{
+			ft_putchar_fd(va_arg(var->args, int), 1);
+			print_spaces(var);
+		}
+		else
+		{
+			print_spaces(var);
+			ft_putchar_fd(va_arg(var->args, int), 1);
+		}
+	}
+	else
+		ft_putchar_fd(va_arg(var->args, int), 1);
+	var->char_count++;
+	var->str_count++;
+}
