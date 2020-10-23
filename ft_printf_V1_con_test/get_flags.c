@@ -6,12 +6,11 @@
 /*   By: kbarahon <kbarahon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 02:20:24 by kbarahon          #+#    #+#             */
-/*   Updated: 2020/10/19 21:07:32 by kbarahon         ###   ########.fr       */
+/*   Updated: 2020/10/23 19:27:31 by kbarahon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <unistd.h>
 
 void	get_flags(const char *format, t_var *var)
 {
